@@ -28,8 +28,29 @@ async function run() {
     await client.connect();
     console.log("Connected to MongoDB");
 
-    const db = client.db("Mars Visitor");
+    const db = client.db("Mars_Visitor");
     const marsVisitorCollection = db.collection("marsVisitor");
+
+    //* Create
+    app.post("/api/v1/visitor", async (req, res) => {
+      console.log(req.body);
+      const result = await marsVisitorCollection.insertOne(req.body);
+      res.json({
+        success: true,
+        message: "Your Application Successfully Submited",
+        result,
+      });
+    });
+
+    //* Get ALL
+    app.get("/api/v1/visitors", async (req, res) => {
+      const data = await marsVisitorCollection.find({}).toArray();
+      res.json({
+        success: true,
+        message: "Successfully Retrieve Visitors!",
+        data,
+      });
+    });
 
     // Start the server
     app.listen(port, () => {
