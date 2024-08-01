@@ -6,7 +6,7 @@
 
 ## Live Link:
 
-Website Live Link: [Mission To Mars](https://multi-stage-form-ph-server.vercel.app/).
+Server Live Link: [Mission To Mars](https://multi-stage-form-ph-server.vercel.app/).
 
 ## Installation:
 
